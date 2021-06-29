@@ -1,0 +1,8 @@
+2021-06-29 14:45:13 INFO  CommandLine:93 - User selected all cures
+2021-06-29 14:46:54 INFO  CommandLine:93 - User selected all cures
+2021-06-29 14:47:05 INFO  CommandLine:116 - User created entry
+2021-06-29 14:49:19 INFO  CommandLine:91 - User selected all cures
+2021-06-29 14:49:43 INFO  CommandLine:116 - User created entry
+2021-06-29 14:50:02 INFO  CommandLine:142 - User updated entry
+2021-06-29 14:50:38 INFO  CommandLine:167 - User deleted entry
+2021-06-29 14:50:41 INFO  CommandLine:91 - User selected all cures

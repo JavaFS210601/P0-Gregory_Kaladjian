@@ -15,9 +15,9 @@ public class Launcher {
 		//checking connection
 		connection = ConnectionUtil.checkConnection();
 		
+		//runs the method until the connection is false
 		while (connection == true) 
 		{
-			System.out.println("Inside while loop");
 			connection = CommandLine.CommandLineUI(connection);	
 		}
 	}

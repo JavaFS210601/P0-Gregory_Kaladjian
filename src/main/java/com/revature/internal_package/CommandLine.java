@@ -39,17 +39,6 @@ public class CommandLine
 		System.out.println("Access Granted to the World Cure Database");
 	}
 	
-	
-	private void menuTextOptions()
-	{
-		System.out.println("Please choose one of the following options by typing in a number: \r\n"
-				+ "1. View Cures \r\n"
-				+ "2. Create Entry \r\n"
-				+ "3. Update Entry \r\n"
-				+ "4. Delete Entry \r\n"
-				+ "5. Exit Program \r\n");
-	}
-	
 	private boolean menuOptions(boolean connection)
 	{
 		menuTextOptions();
@@ -73,16 +62,29 @@ public class CommandLine
 				break;
 				
 			case 5:
+				viewDiseases();
+				break;
+			case 6:
 				System.out.println("Program Terminated");
 				connection = false;
 				break;
-				
 			default:
 				System.out.println("Program Terminated; Default Case Reached");
 				connection = false;
 				break;
 		}
 		return connection;
+	}
+	
+	private void menuTextOptions()
+	{
+		System.out.println("Please choose one of the following options by typing in a number: \r\n"
+				+ "1. View Cures \r\n"
+				+ "2. Create Entry \r\n"
+				+ "3. Update Entry \r\n"
+				+ "4. Delete Entry \r\n"
+				+ "5. View Diseases and Urgency \r\n"
+				+ "6. Exit Program \r\n");
 	}
 	
 	private void viewCures()
@@ -165,6 +167,19 @@ public class CommandLine
 		CuresDao.removeCures(originationIDInput);
 		System.out.println();
 		log.info("User deleted entry");
+		System.out.println();
+	}
+	
+	private void viewDiseases()
+	{
+		System.out.println();
+		log.info("User selected all cures");
+		System.out.println();
+		List<Diseases> diseases = DiseasesDao.getDiseases();
+		for (Diseases c: diseases)
+		{
+			System.out.println(c.getCure_id() + ") " + c.getDisease_name() + ", Disease Urgency:  " + c.getDisease_urgency());
+		}
 		System.out.println();
 	}
 }

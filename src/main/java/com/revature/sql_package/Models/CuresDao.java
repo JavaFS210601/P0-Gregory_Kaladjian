@@ -39,22 +39,19 @@ public class CuresDao implements CuresDaoInterface {
 			while(rs.next()) 
 			{ //while there are results left in the ResultSet (rs)
 						
-				//Create a new Employee Object from each returned record
-				//This is the Employee Class's all args constructor
-				//And we're filling it with each column of the Employee record
+	
 				Cures Cures = new Cures(
 				rs.getInt("origination_id"),
 				rs.getString("cure_name"),
 				rs.getString("creation_date"),
 				rs.getInt("cure_id")
 				);
-						
-				//add the newly created Employee object into the ArrayList of Employees
+
 				CuresList.add(Cures);
 		
 			}
 					
-			return CuresList; //Finally, if successful, return the List of Employees
+			return CuresList; 
 					
 			} catch (SQLException e) { //if something goes wrong accessing our data, it will get caught
 				System.out.println("Something went wrong when trying to access your DB");
@@ -75,7 +72,7 @@ public class CuresDao implements CuresDaoInterface {
 				
 				String currentDate = dateFormat.format(date); //make a String that represents today's date in the format we want (line 69)
 				
-				//we're going to create a SQL statement using parameters to insert a new Employee
+				//we're going to create a SQL statement using parameters
 				String sql = "INSERT INTO cures (cure_name, creation_date, cure_id) " //creating a line break for readability
 						+ "VALUES (?, ?, ?);"; //these are parameters!!! We have to now specify the value of each "?"
 				
@@ -83,7 +80,6 @@ public class CuresDao implements CuresDaoInterface {
 				PreparedStatement ps = conn.prepareStatement(sql); //we use PreparedStatements for SQL commands with parameters
 				
 				//use the PreparedStatement object's methods to insert values into the SQL query's ?s
-				//the values will come from the Employee object we sent in
 				//this requires two arguments, the number of the "?", and the value to give it
 				ps.setString(1, cure.getCure_name());
 				ps.setDate(2, java.sql.Date.valueOf(currentDate)); //this takes our Java Date, and turns it into a SQL Date.
